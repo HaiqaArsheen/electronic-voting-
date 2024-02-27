@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Audiowide|Sofia|Trirong">
+        <link rel="stylesheet" href="../assets/style.css">
+    </head>
+    <body>
+        <header class="header">
+            <a href="#" class="logo">EVB</a>
+            <i class='bx bx-menu' id="menu-icon" ></i>
+            <nav class="navbar">
+                <a href="index.html" class="active">HOME</a>
+                <a href="about.html">ABOUT</a>
+                <a href="candidate.html">CANDIDATE</a>
+                <a href="castvote.html"> CASTVOTING</a>
+                
+                <a href="contact.html">CONTACT</a>
+                <a href="result.html">RESULT</a>
+                <a href="history.html">HISTORY</a>
+                
+           </nav>
+        </header>
+
+        <!----------------------home page-------------------------->
+
+      
+ 
+        <!----------contact------------->
+
+        <section class="contact" id="contact">
+            <h2 class="heading">contact <span> ME!</span></h2>
+            <form action="#">
+                <div class="input-box">
+                    <input type="text" name="fname" id="fname" placeholder="First Name">
+                    <input type="text" name="lname" id="lname" placeholder="Last Name">
+                </div>
+                <div class="input-box">
+                    <input type="email" name="email"  id="email" placeholder="Email Address">
+                    <input type="text" name="subject" id="subject" placeholder="Email Subject">
+                </div>
+                <textarea name="" id="message" cols="30" rows="10" placeholder="Your Message"></textarea>
+                <input type="submit"  class="btn" id="btn"value="send message" >
+            </form>
+        </section>
+
+        <!------------------footer-------------------->
+       
+       <footer class="footer">
+        <div class="footer-text">
+            <p>copyright & copy br codehall | All Rights Reserved</p>
+        </div>
+        <div class="footer-icnTop">
+            <a href="#"><i class='bx bx-up-arrow-alt'></i></a>
+        </div>
+       </footer>
+       <script src="https://smtpjs.com/v3/smtp.js">
+    </script>
+       <script src="./java/myscript.js"></script>
+<script>
+    var btn = document.getElementById('btn');
+btn.addEventListener('click', function(e){
+    e.preventDefault()
+    var fname = document.getElementById('fname').value;
+    var lname = document.getElementById('lname').value;
+    var email = document.getElementById('email').value;
+    var subject = document.getElementById('subject').value;
+    var message = document.getElementById('message').value;
+    var tokenNumber = Math.floor(Math.random() * 1000000);
+var body ='<b>First-Name</b>:'+fname+ '<br> <b>last-Name</b>:  '+lname+ '<br> <b>email</b>: '+email+ '<br><b>subject</b> '+subject+ '<br><b> meaasage </b> '+message+"<br> token number of complain is <b>"+tokenNumber+'<br>';
+    Email.send({
+        Host : "smtp.elasticemail.com",
+        Username : "haiqaarsheen2@gmail.com",
+        Password : "99C0D9601765DC52101BFE5E3C96FB5105C0",
+        To : 'haiqaarsheen2@gmail.com',
+        From : email,
+        Subject : subject,
+        Body : body
+    }).then(
+        alert ("email send on server")
+     // message => alert(message)
+    );
+});
+</script>
+    </body>
+</html>

@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Audiowide|Sofia|Trirong">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.1/css/fontawesome.min.css">
+
+        <link rel="stylesheet" href="../assets/style.css">
+       
+    </head>
+    <body>
+        <header class="header"  >
+            <a href="#" class="logo" id>EVB.</a>
+            
+            <i class='bx bx-menu' id="menu-icon" ></i>
+            
+            <nav class="navbar"  >
+               
+                
+               
+                 
+                <a href="index.html" class="active">HOME</a>
+                <a href="about.html">ABOUT</a>
+                <a href="candidate.html">CANDIDATE</a>
+                <a href="castvote.html"> CAST VOTING</a>
+                
+                <a href="contact.html">CONTACT</a>
+                <a href="result.html">RESULT</a>
+                <a href="history.html">HISTORY</a>
+                
+                
+
+           </nav>
+        </header>
+
+      
+
+
+<section class="vote" id="candidate">
+  <!--
+  <div class="wrappere" id="wrappere">
+    
+    <div class="logreg-box">
+<div class="form-box login"   >
+<div class="logreg-title" id="logreg-title">
+<h2>REGISTER AS VOTER</h2>
+
+</div>
+<!----
+<form   id="form1"  name= 'form1' action="/check-cnic" onsubmit="return validateForm()" method="post" require>
+<div class="inpt-box" id="inpt-box">
+  <span class="icon"><i class='bx bx-envelope'></i></span>
+      <input type="number" name="cnic" id="number"  maxlength="13" required>
+      <label >CNIC Number</label>
+  
+</div>
+<div class="logreg-link">
+<p>Enter CNIC Number without hiphan(-)</p>
+</div><BR>
+  <br>
+<div  id="input-boxe">
+  <label>PLZ ENTER TEXT FOR VERIFICATION</label></div>
+  <br>
+  <br><----
+<div class="captcha">
+  <br>
+  <div id="captchaValue">ssssss</div>
+  <input  id="inputCaptcha" type="text" name="">
+</div>
+<br>-->
+<!----
+<div id="captchaValue">
+<img id="captchaImage" src="" alt="CAPTCHA"></div>
+  <br>
+  <input type="text" id="captchaInput" placeholder="Enter CAPTCHA">
+  
+  <!--<button onclick="verifyCaptcha()">Verify</button>-->
+  <!----
+<div class="ui">
+<button  onclick="verifyCaptcha()" type="submit" class="btn"  id="createAccountButto"  value="Create Account">REGISTER</button>
+</div>
+</form>
+<div id="confirmation" class="hidden">
+  <p id="resultText"></p>
+</div>-->
+<!----
+</div>
+
+    </div>
+  </div>-->
+
+
+    <form id="voteForm" action="/castvote.html" method="post">
+    <fieldset>
+        <legend><span>SELECT YOUR CANDIDATE</span></legend>
+       
+          <label>
+        
+        <input type="radio" id="test" name="test"  value="name 1" >
+        <img src="/images/ij.png" alt=""><label>NAME 1</label><label class="in"><img src="/images/icons8-bicycle-64.png"></label>
+      </label>
+      <br><br><br>
+      <label>
+        <input type="radio" id="test" name="test"  value="name 2">
+        <img src="/images/ij.png" alt=""><label>NAME 2</label><label class="in"><img src="/images/icons8-bicycle-64.png"></label>
+      </label><br><br><br>
+      <label>
+        <input type="radio" id="test" name="test" value="name 3">
+        <img src="images/ij.png" alt=""><label>NAME 3</label><label class="in"><img src="/images/icons8-bicycle-64.png"></label>
+      </label><br><br><br>
+      <label>
+        <input type="radio" id="test" name="test" value="name 4">
+        <img src="images/ij.png" alt=""><label>NAME 4</label><label class="in"><img src="/images/icons8-bicycle-64.png"></label>
+      </label>
+<br><br><br>
+      <label>
+        <input type="radio" id="test" name="test"  value="name 5">
+        <img src="images/ij.png" alt=""><label>NAME 5</label><label class="in"><img src="/images/icons8-bicycle-64.png"></label>
+      </label><br><br><br>
+      <label>
+        <input type="radio" id="test" name="test"  value="name 6">
+        <img src="images/ij.png" alt=""><label>NAME 6</label><label class="in"><img src="/images/icons8-bicycle-64.png"></label>
+      </label><br><br><br>
+      <label>
+        <input type="radio" id="test" name="test"  value="name 7">
+        <img src="images/ij.png" alt=""><label>NAME 7</label><label class="in"><img src="/images/icons8-bicycle-64.png"></label>
+      </label><br><br><br>
+      <label>
+        <input type="radio" id="test" name="test"  value="name 8">
+        <img src="images/ij.png" alt=""><label>NAME 8</label><label class="in"><img src="/images/icons8-bicycle-64.png"></label>
+      </label><br><br><br>
+      <label>
+        <input type="radio" id="test" name="test"  value="name 9">
+        <img src="images/ij.png" alt=""><label>NAME 9</label><label class="in"><img src="/images/icons8-bicycle-64.png"></label>
+      </label><br><br><br>
+      <label>
+        <input type="radio" id="test" name="test"  value="name 10">
+        <img src="images/ij.png" alt=""><label>NAME 10</label><label class="in"><img src="/images/icons8-bicycle-64.png"></label>
+      </label><br><br><br>
+      <label>
+        <input type="radio" id="test" name="test"  value="name 11">
+        <img src="images/ij.png" alt=""><label>NAME 11</label><label class="in"><img src="/images/icons8-bicycle-64.png"></label>
+      </label><br><br><br>
+      <label>
+        <input type="radio" id="test" name="test"  value="name 12">
+        <img src="images/ij.png" alt=""><label>NAME 12</label><label class="in"><img src="/images/icons8-bicycle-64.png"></label>
+      </label><br><br><br><br>
+      <label>
+      <input type="radio" id="test" name="test"  value="name 12">
+      <img src="images/ij.png" alt=""><label>NAME 13</label><label class="in"><img src="/images/icons8-bicycle-64.png"></label>
+    </label><br><br><br>
+    </br>
+    </fieldset>
+    <button type="submit" onclick="saveVot(),recordVote() "class="btn"  >SUBMIT </button>
+
+    </form>
+    <ul id="blockchain"></ul>
+    <div class="popup center">
+            
+      <div class="title">
+           you sucessfully vote thanks
+      </div>
+      
+      <div class="dismiss-btn">
+          <button  class="btn" id="try">ok</button>
+      </div>
+  </div>
+  
+
+</section>
+
+
+
+
+
+
+
+
+
+
+
+        <footer class="footer">
+            <div class="footer-text">
+                <p>copyright & copy br codehall | All Rights Reserved</p>
+            </div>
+            <div class="footer-icnTop">
+                <a href="#"><i class='bx bx-up-arrow-alt'></i></a>
+            </div>
+           </footer>
+    
+          <!------ //<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+           <div class="g-recaptcha" data-sitekey="6LfX8PAmAAAAAEI5PsUfNcUJiaUsONrmtJvkD4OH"></div>-->
+
+    
+    
+           <script src="https://unpkg.com/scrollreveal"></script>
+
+           <!--typedjs-->
+           
+<!--<script src="./java/myscripts.js"></script>-->
+           <script src="../server/myscript.js"></script>
+           
+  
+
+
+<!-----
+/*
+// Function to handle form submission
+function handleSubmit(event) {
+  event.preventDefault();
+
+  // Get the user response token from the reCAPTCHA widget
+  const userResponse = grecaptcha.getResponse();
+
+  // Validate the user response token
+  if (userResponse === '') {
+    // If the user did not complete the reCAPTCHA, display an error message
+    alert('Please complete the reCAPTCHA');
+    return;
+  }
+
+  // Submit the form or perform further processing
+  // ...
+}
+
+// Add an event listener to the form submit button or the form itself
+const form = document.getElementById('form1'); // Replace with your form ID
+form.addEventListener('submit', handleSubmit);*/
+---->
+<script>
+ 
+  // Function to generate and display CAPTCHA image
+  function generateCaptcha() {
+    fetch('/captcha')
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById('captchaImage').src = `data:image/svg+xml;base64,${btoa(data)}`;
+      });
+  }
+
+  // Function to verify CAPTCHA
+  function verifyCaptcha() {
+    const userInput = document.getElementById('captchaInput').value;
+
+    fetch(`/verify?userInput=${userInput}`)
+      .then(response => response.json())
+      .then(data => {
+        if (data.success) {
+          alert('CAPTCHA verification successful!');
+        } else {
+          alert('CAPTCHA verification failed!');
+          window.location.href = 'castvote.html';
+
+        }
+        // Generate a new CAPTCHA image after verification
+        generateCaptcha();
+      });
+  }
+
+  // Generate the first CAPTCHA image on page load
+  window.onload = function() {
+    generateCaptcha();
+  };
+ function saveVot() {
+  var selectedCandidate = document.querySelector('input[name="test"]:checked');
+  if (selectedCandidate) {
+        // Save the selected candidate to localStorage
+        localStorage.setItem('selectedCandidate', selectedCandidate.value);
+
+        // Redirect to the cast vote page
+        window.location.href = 'castvote.html';
+    } else {
+        alert("Please select a candidate before saving.");
+ }
+}
+</script>
+
+<script>
+  /*
+  document.addEventListener("DOMContentLoaded", function () {
+            const form = document.querySelector("form");
+            const submitBtn = document.getElementById("createAccountButto");
+            const confirmation = document.getElementById("confirmation");
+            const resultText = document.getElementById("resultText");
+
+            form.addEventListener("submit", function (e) {
+                e.preventDefault();
+                const cnicInput = document.getElementById("cnic").value;
+                if (cnicInput.startsWith("34104")) {
+                    confirmation.style.opacity = 0;
+                    resultText.textContent = "CNIC Number is valid.";
+                } else {
+                    confirmation.style.opacity = 1;
+                    resultText.textContent = "CNIC Number is not valid.";
+                }
+                submitBtn.disabled = true;
+            });
+        });
+// frontend/script.js
+
+
+
+/*
+console.log("hh");
+async function submitVote() {
+  console.log("9");
+    const selectedCandidate = document.querySelector('input[name="test"]:checked');
+    console.log("9");
+    if (!selectedCandidate) {
+        console.error('Please select a candidate.');
+        return;
+    }
+
+    const candidateName = selectedCandidate.value;
+    console.log("p");
+
+    // Send candidate name to the server to add to the blockchain and save to folder
+    try {
+        const response = await fetch('/add_candidate', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ name: candidateName })
+        });
+
+        const data =   await response.json();
+        console.log(data.message);
+    } catch (error) {
+        console.error('Error:', error);
+    }
+}*/
+
+// script.js
+
+
+
+
+
+
+</script>
+
+           
+        </body>
+    </html>

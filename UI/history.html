@@ -1,0 +1,215 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="google-signin-client_id" content="755488278493-pf8bdq0sslh94mrjilh1vqjm2trpscso.apps.googleusercontent.com">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Audiowide|Sofia|Trirong">
+        <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+       <!--<link
+        rel="stylesheet"
+        href="https://unpkg.com/simplebar@latest/dist/simplebar.css"
+      >-->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.1/css/fontawesome.min.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css"/>
+        <link rel="stylesheet" href="../assets/style.css">
+        <link rel="stylesheet" href="../assets/simplebar.css">
+    </head>
+
+    <body>
+        <div class="chk">
+        <header class="header"  >
+            <a href="#" class="logo" id>EVB.</a>
+            
+            <i class='bx bx-menu' id="menu-icon" ></i>
+            
+            <nav class="navbar"  >
+               
+                
+               <ul>
+                 
+              <li> <a href="index.html" class="active">HOME</a></li>
+                <li><a href="about.html">ABOUT</a></li>
+            <li> <a href="candidate.html" >   CANDIDATE</a></li>
+                <li><a href="castvote.html" >CAST VOTE</a></li>
+                
+               <li> <a href="contact.html">CONTACT</a></li>
+               <li> <a href="result.html">RESULT</a></li>
+               <li> <a href="history.html">HISTORY</a></li>
+               
+               </ul> 
+
+           </nav>
+        </header>
+<body>
+    <h1 class="headig">HISTORY<span>PAGE</span> </h1>
+    <main class="table" id="ris">
+       
+        <div class="table__header">
+            <h1> HISTORY</h1>
+            <div class="input-group" >
+                <input type="text" id="searchInput " placeholder="Search Data...">
+                
+            </div>
+        </div>
+    
+        <section class="table__body" id="dataTable">
+
+    <table id="historyTable">
+        <thead id="historyhead">
+            <tr>
+                <th> DATE,TIME<!----<span class="icon-arrow">&UpArrow;</span>--></th>
+                <th> VOTE<!---- <span class="icon-arrow">&UpArrow;</span>--></th>
+                <th> CNIC <!--<span class="icon-arrow">&UpArrow;</span>--></th>
+               <!---- <th> VOTE COUNT <span class="icon-arrow">&UpArrow;</span></th>-->
+                
+            </tr>
+        </thead>
+        
+        <tbody id="historyBody"></tbody>
+    </table>
+        </section>
+    </main>
+    <script>
+
+       document.addEventListener('DOMContentLoaded', function() {
+            // Load existing history from localStorage
+        loadExistingHistory();
+
+            // Retrieve selected candidate and voter CNIC from localStorage
+            var selectedCandidate = localStorage.getItem('selectedCandidate');
+            var voterCNIC = localStorage.getItem('voterCNIC');
+
+            if (selectedCandidate || voterCNIC) {
+                // Check if the CNIC is already present in the history table
+                var existingRow = findRowByCNIC(voterCNIC);
+
+                if (existingRow) {
+                    // Update existing row if CNIC is found
+                    updateExistingRow(existingRow, selectedCandidate);
+                } else {
+                    // Insert a new row if CNIC is not found
+                    insertNewRow(selectedCandidate, voterCNIC);
+                }
+
+                // Clear the stored values in localStorage
+                localStorage.removeItem('selectedCandidate');
+                localStorage.removeItem('voterCNIC');
+            }
+        });
+
+       function loadExistingHistory() {
+            // Load existing history from localStorage
+            var historyBody = document.getElementById("historyBody");
+            var historyData = JSON.parse(localStorage.getItem('historyData')) || [];
+
+            historyData.forEach(function(entry) {
+                var newRow = historyBody.insertRow();
+                var cell1 = newRow.insertCell(0);
+                var cell2 = newRow.insertCell(1);
+                var cell3 = newRow.insertCell(2);
+
+                cell1.innerHTML = entry.time;
+                cell2.innerHTML = entry.candidate || '-';
+                cell3.innerHTML = entry.cnic || '-';
+            });
+        }
+
+        function findRowByCNIC(cnic) {
+            var rows = document.querySelectorAll("#historyTable tbody tr");
+
+            for (var i = 0; i < rows.length; i++) {
+                var cnicCell = rows[i].cells[2].innerText.trim();
+
+                if (cnicCell === cnic) {
+                    return rows[i];
+                }
+            }
+
+            return null;
+        }
+
+        function updateExistingRow(row, candidate) {
+            // Update the existing row with the selected candidate
+            var timeCell = row.cells[0];
+            var candidateCell = row.cells[1];
+
+            var currentTime = new Date().toLocaleString();
+            timeCell.innerHTML = currentTime;
+            candidateCell.innerHTML = candidate || '-';
+
+            // Update the historyData in localStorage
+            updateHistoryData();
+        }
+
+        function insertNewRow(candidate, cnic) {
+            // Insert a new row with the selected candidate and CNIC
+            var newRow = historyBody.insertRow();
+            var cell1 = newRow.insertCell(0);
+            var cell2 = newRow.insertCell(1);
+            var cell3 = newRow.insertCell(2);
+
+            var currentTime = new Date().toLocaleString();
+            cell1.innerHTML = currentTime;
+            cell2.innerHTML = candidate || '-';
+            cell3.innerHTML = cnic || '-';
+
+            // Update the historyData in localStorage
+            updateHistoryData();
+        }
+
+        function updateHistoryData() {
+            // Update the historyData in localStorage
+            var historyData = [];
+            var rows = document.querySelectorAll("#historyTable tbody tr");
+
+            rows.forEach(function(row) {
+                var time = row.cells[0].innerText.trim();
+                var candidate = row.cells[1].innerText.trim();
+                var cnic = row.cells[2].innerText.trim();
+
+                historyData.push({ time: time, candidate: candidate, cnic: cnic });
+            });
+
+            localStorage.setItem('historyData', JSON.stringify(historyData));
+        }
+
+    
+ const table = document.querySelector('table');
+    const tbodye = document.querySelector('#historyBody tbody ');
+    
+    // Listen for scroll events on the table container
+    table.parentElement.addEventListener('scroll', () => {
+        const scrollTop = table.parentElement.scrollTop;
+    
+        // Iterate through each row in the tbody
+       
+      tbodye.document.querySelectorAll("  #historyBody tbody tr") .forEach(row => {
+            const rowOffsetTop = row.offsetTop;
+    
+            // Calculate the distance between the row and the top of the table
+            const distance = rowOffsetTop - scrollTop;
+    
+            // Apply the 'blur' class to rows that are not in focus (distance > 0)
+            if (distance < 0) {
+                row.classList.add('blur');
+            } else {
+                row.classList.remove('blur');
+            }
+        });
+    });
+        
+    </script>
+     <script src="java/myscript.js"></script>
+     <footer class="footer">
+        <div class="footer-text">
+            <p>copyright & copy br codehall | All Rights Reserved</p>
+        </div>
+        <div class="footer-icnTop">
+            <a href="#"><i class='bx bx-up-arrow-alt'></i></a>
+        </div>
+       </footer>
+</body>
+</html>
